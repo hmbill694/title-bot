@@ -9,8 +9,6 @@ const app = express()
 app.get('/getTitle/:url', (req, res) => {
   const { params: { url } } = req
 
-  console.log(url)
-
   request(`http://${url}`, (error, response, body) => {
     // problem occured
     if (error || response.statusCode !== 200) {
