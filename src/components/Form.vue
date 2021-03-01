@@ -27,19 +27,23 @@
 
 <script>
 import { cond, equals, always, curry, pipe, complement, T } from 'ramda'
+import { mapActions } from 'vuex'
 export default {
   name: 'HelloWorld',
   data: () => ({
     url: ''
   }),
   methods: {
+    ...mapActions([
+      'getTitle'
+    ]),
     onSubmit (event) {
       event.preventDefault()
       if (!this.validateUrl.isValid) {
         return
       }
 
-      console.log('dispatch to store')
+      this.getTitle(this.url)
     },
     onReset () {
       this.url = ''

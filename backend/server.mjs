@@ -21,7 +21,6 @@ app.get('/getTitle/:url', (req, res) => {
 
     // valid response
     res.status(200).json({
-      url,
       title,
       message: 'Success'
     })
