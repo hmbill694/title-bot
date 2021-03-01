@@ -9,8 +9,8 @@
         <b-form-input
           id="input-1"
           v-model="url"
-          type="email"
-          placeholder="Enter email"
+          type="text"
+          placeholder="Enter the website"
           required
         ></b-form-input>
       </b-form-group>
