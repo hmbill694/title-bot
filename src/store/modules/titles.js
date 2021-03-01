@@ -2,14 +2,24 @@ const state = {
   searchTitles: []
 }
 
-const mutations = {}
+const mutations = {
+  addTitle (state, payload) {
+    state.searchTitles.push(payload)
+  }
+}
 
 const actions = {
   async getTitle ({ commit }, url) {
-    const response = await fetch(`http://localhost:3000/getTitle/${url}`)
-    const processedResponse = await response.json()
+    try {
+      const response = await fetch(`http://localhost:3000/getTitle/${url}`)
+      const { title, message } = await response.json()
 
-    console.log(processedResponse)
+      if (message !== 'success') return
+
+      commit('addTitle', { title, url })
+    } catch (e) {
+      console.log('fish')
+    }
   }
 }
 
