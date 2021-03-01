@@ -20,7 +20,7 @@ export default {
 <style>
 .content-area{
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 2fr 5fr;
   min-height: 35vh;
   gap: 3rem;
 }
