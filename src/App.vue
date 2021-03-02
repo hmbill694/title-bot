@@ -1,16 +1,18 @@
 <template>
   <div class="main-screen">
     <ContentArea/>
+    <Alert />
   </div>
 </template>
 
 <script>
 import ContentArea from '@/components/ContentArea.vue'
-
+import Alert from '@/components/alert.vue'
 export default {
   name: 'App',
   components: {
-    ContentArea
+    ContentArea,
+    Alert
   }
 }
 </script>

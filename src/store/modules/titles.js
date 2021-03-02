@@ -12,9 +12,7 @@ const actions = {
   async getTitle ({ commit }, url) {
     try {
       const response = await fetch(`http://localhost:3000/getTitle/${url}`)
-      const { title, message } = await response.json()
-
-      if (message !== 'success') return
+      const { title } = await response.json()
 
       commit('addTitle', { title, url })
     } catch (e) {

@@ -15,7 +15,7 @@ app.get('/getTitle/:url', (req, res) => {
   request(`http://${url}`, (error, response, body) => {
     // problem occured
     if (error || response.statusCode !== 200 || typeof body !== 'string') {
-      res.status(400).json({ message: 'Invalid URL entered' })
+      res.send({ status: 400, message: 'Invalid URL entered' })
       return
     }
 
@@ -24,9 +24,9 @@ app.get('/getTitle/:url', (req, res) => {
     const title = $('title').text()
 
     // valid response
-    res.status(200).json({
-      title,
-      message: 'success'
+    res.send({
+      status: 200,
+      title
     })
   })
 })

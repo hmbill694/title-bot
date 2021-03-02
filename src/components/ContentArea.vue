@@ -1,7 +1,9 @@
 <template>
-  <div class="content-area">
-    <Form/>
-    <SearchHistory />
+  <div>
+    <div class="content-area">
+      <Form/>
+      <SearchHistory />
+    </div>
   </div>
 </template>
 
