@@ -44,6 +44,7 @@ export default {
       }
 
       this.getTitle(this.url)
+      this.url = ''
     },
     onReset () {
       this.url = ''
