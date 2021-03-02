@@ -9,14 +9,19 @@ const mutations = {
 }
 
 const actions = {
-  async getTitle ({ commit }, url) {
+  async getTitle ({ commit, dispatch }, url) {
     try {
       const response = await fetch(`http://localhost:3000/getTitle/${url}`)
       const { title } = await response.json()
 
       commit('addTitle', { title, url })
+      dispatch('changeAlertMessage', 'Title succesfully found!')
+      dispatch('changeAlertType', 'success')
     } catch (e) {
-      console.log('fish')
+      dispatch('changeAlertMessage', 'Something went wrong!')
+      dispatch('changeAlertType', 'warning')
+    } finally {
+      dispatch('toggleAlert')
     }
   }
 }
