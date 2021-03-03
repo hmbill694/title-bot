@@ -14,8 +14,6 @@ const actions = {
       const response = await fetch(`http://localhost:3000/getTitle/${url}`)
       const { title, status, message } = await response.json()
 
-      console.log(status)
-
       if (status !== 200) {
         dispatch('changeAlertMessage', message)
         dispatch('changeAlertType', 'danger')

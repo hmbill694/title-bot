@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "run-s tab:server tab:build:js open:page",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "node backend/server.mjs"
+    "start-backend": "node backend/server.mjs",
+    "tab:build:js": "ttab -t 'Frontend' npm run serve",
+    "tab:server": "ttab -t 'Server' npm run start-backend",
+    "open:page": "open 'http://localhost:8080'"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
@@ -33,6 +37,8 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
+    "npm-run-all": "^4.1.5",
+    "ttab": "^0.7.0",
     "vue-template-compiler": "^2.6.11"
   }
 }

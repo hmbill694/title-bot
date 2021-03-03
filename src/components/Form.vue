@@ -35,11 +35,17 @@ export default {
   }),
   methods: {
     ...mapActions([
-      'getTitle'
+      'getTitle',
+      'toggleAlert',
+      'changeAlertType',
+      'changeAlertMessage'
     ]),
     onSubmit (event) {
       event.preventDefault()
-      if (!this.validateUrl.isValid) {
+      if (!this.urlValidity.isValid) {
+        this.changeAlertType('danger')
+        this.changeAlertMessage(this.urlValidity.message)
+        this.toggleAlert()
         return
       }
 
@@ -51,7 +57,7 @@ export default {
     }
   },
   computed: {
-    validateUrl () {
+    urlValidity () {
       const createResponse = (isValid, message) => ({
         isValid,
         message
