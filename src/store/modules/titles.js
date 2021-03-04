@@ -17,6 +17,7 @@ const actions = {
       if (status !== 200) {
         dispatch('changeAlertMessage', message)
         dispatch('changeAlertType', 'danger')
+        dispatch('toggleAlert')
         return
       }
 
