@@ -68,17 +68,13 @@ export default {
       const searchForInvalid = (target, invalidValue) => pipe(search(target), equals(invalidValue))
 
       // functions to check validity of URL
-      const missingWWW = searchForInvalid('www.', -1)
       const containsHTTP = complement(searchForInvalid('http', -1))
-      const doesNotStartWithWWW = searchForInvalid('www.', 1)
 
       // a function that will check the url against each case
       // and return the appropriate response for each type of
       // invalid
       const validator = cond([
-        [missingWWW, always(createResponse(false, 'Your URL is missing the www.'))],
         [containsHTTP, always(createResponse(false, 'Your URL contains http'))],
-        [doesNotStartWithWWW, always(createResponse(false, 'Your URL must start with www.'))],
         [T, always(createResponse(true, 'valid URL'))]
       ])
 
